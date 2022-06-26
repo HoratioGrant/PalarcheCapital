@@ -1,7 +1,4 @@
-<?php
 
-require("connect.php"); //get database login info
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,48 +19,39 @@ require("connect.php"); //get database login info
     <header id="topNav">
     <nav>
         <ul>
-            <li><a>Newsletter</a>
-            <a>Client Access</a>
-            <a>Advisors</a>
-            <a>fr</a>
+            <a><li>Newsletter</li></a>
+            <a> <li>Client Access</li></a>
+            <a> <li>Advisors</li></a>
+            <a> <li>fr</li></a>
             
         </ul>
     </nav>
     </header>
 
-    <header id="bottomNav" >
+    <header id="bottomNav" class="bottom" >
       <nav>
         <ul>
-            <li><a>Contact US</a>
-            <a>Invest</a>
-            <a>FAQ</a>
-            <a>About US</a>
-            <a>Log In</a></li>
+        <a href="contact.php"><li>Contact US</li></a>
+        <a><li>Invest</li></a>
+        <a><li>FAQ</li></a>
+        <a><li> About US</li></a>
+         <a><li>Log In</li></a>
         </ul>
+           <img src="https://i.ibb.co/829b5MH/Palarche-Logo.png" alt="Palarche Capital" id="logo">
     </nav>
-
-   
-    <img src="./pics/PalarcheLogo.png" alt="Palarche Capital" id="logo">
-
-</header>
-
+   </header> 
 <video id="vid" autoplay muted>
-     <source  src="./pics/PalarcheCapitalWEB.mp4" type="video/mp4" >
+     <source  src="./pics/PalarchCapitalWEB_Fast.mp4" type="video/mp4" >
  </video>
+   
 
- <header>
-  
-</header>
+
 
 <article>
-    <h2 id="description"> We are a Canadian asset management fund guided by our five core values: </h2>
-    <div class="blocks"><p>Do the right thing </p></div>
-    <div class="blocks"><p>Put clients first </p></div>
-    <div class="blocks"><p>Lead with exceptional ideas </p></div>
-    <div class="blocks"><p>Commit to diversity and inclusion </p></div>
-    <div class="blocks"><p>Give back to the Community </p></div>
+    <h2 id="description"> We are a Private Canadian Assest Management Fund </h2>
+    
     <div id=stats>
-         <p id="info">random statistic</p>
+         <p id="info">ANNUALIZED RETURNS SINCE <br>JUNE 2022 </p>
          <p id="countUp"></p>
      </div>    
 </article>
@@ -78,3 +66,6 @@ require("connect.php"); //get database login info
 
 </body>
 </html>
+
+
+

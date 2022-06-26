@@ -1,7 +1,7 @@
 
-var count=0.00;
+  var count=0.00;
 window.onload = (event) => {
-    
+  
   
  
      introVid=document.getElementById("vid");
@@ -9,32 +9,37 @@ window.onload = (event) => {
          document.getElementById("body").style.overflowY="visible";
         
            introVid.remove();
-           countup = setInterval(countUp, 25);
-           
+            countup = setInterval(countUp, 25);
+
+          
        }
 
-       var tnav=document.getElementById("topNav");
-       var tnavPos=tnav.offsetHeight;
-       var bnav = document.getElementById("bottomNav");
-       var navPos=bnav.offsetTop;
-       var change=true;
-       var set=-1;
-       
-       
-       document.addEventListener('scroll', function(e){
-          var res = navPos - document.documentElement.scrollTop - tnavPos;
+var tnav=document.getElementById("topNav");
+ var bnav = document.getElementById("bottomNav");       
+  var set=-1;    
+     var change=true;
 
-          if (res<=0&&change==true){
+       document.addEventListener('scroll', function(e){
+       var tnavPos=tnav.offsetHeight;
+       var navPos=bnav.offsetTop;
+      
+      
+          var res = navPos - document.documentElement.scrollTop - tnavPos;
+         
+          if (res<0&&change==true){
            reset;
-               bnav.style.position="fixed";
-              bnav.style.top="30px";
+           bnav.setAttribute("class", "top");
+              
               set=document.documentElement.scrollTop
-              console.log(document.documentElement.scrollTop);
+              console.log("DocTop "+document.documentElement.scrollTop);
+              console.log("DocHieght"+document.documentElement.clientHeight);
               change=false;
+
+              
 
           }else if (document.documentElement.scrollTop<set&&change==false){
             reset
-            bnav.style.position="static";
+            bnav.setAttribute("class", "bottom");
             change=true;
            }
           

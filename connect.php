@@ -1,7 +1,7 @@
 <?php
- $hostname = "dev.fast.sheridanc.on.ca";
- $dbname = "PalarcheCapital";
- $user = "granthor_granthor";
- $password ="Welcome16Welcome16";
+ $hostname = "localhost";
+ $dbname = "palarchecapital";
+ $user = "Grant";
+ $password ="Welcome16";
 
 ?>
