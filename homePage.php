@@ -57,7 +57,10 @@
 </article>
 
 
-
+<article>
+    <h2 id="aboutUs"> About Us</h2>
+    <div > </div>
+</article>
 
 
 

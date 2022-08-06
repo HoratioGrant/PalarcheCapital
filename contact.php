@@ -15,14 +15,44 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $message=trim($_POST['input_message']);
     $date = date("Ymd");
 
+    //validatoin
+    if(empty($email)){
+        $error="Email is Empty <br>";
+    }else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $error.="Invalid email format <br>";
+       } else if (strlen($email)>MAXIMUM_EMAIL_LENGTH){
+        $error.="Email is too long <br>";
+       }
+    if(empty($name)){
+        $error="Message is empty";
+    }else if (strlen($name)>MAX_NAME_LENGTH){
+        $error.="First name cannot be longer than 20 characters <br>";
+      }
+    if(empty($message)){
+        $error="Message is empty";
+    }else if (strlen($message)>MAXIMUM_MESSAGE_LENGTH){
+        $error.="First name cannot be longer than 20 characters <br>";
+      }
+    
+
+
+    if($error==""){
     try{
+        mail("granthoratio@gmail.com","NEW Contact Request",$msg);
         $command="INSERT INTO contactusmessages (email,UserName,UserMessage,createdON ) VALUES(?,?,?,?)";
         $stmt= $dbConn->prepare($command);
         $execOk = $stmt->execute(array($email,$name,$message,$date));
+
+        $msg = "TEST from website";
+
+        $msg = wordwrap($msg,70);
+
+      
         
     }catch (PDOException $e){
 
     }
+}
 }
 ?>
 <!DOCTYPE html>
