@@ -1,14 +1,19 @@
 /*
 Horatio Grant
-Table for capturing users for Palarche Capital
+Table for capturing clients for Palarche Capital
 2022-04-23
 */
 
-CREATE TABLE users(
-    email VARCHAR(100) PRIMARY KEY,
+CREATE TABLE client_list(
+    clientId INT AUTO_INCREMENT ,
+    email VARCHAR(100) ,
     userName VARCHAR(20), 
+    type VARCHAR(20),
+    
     passWord VARCHAR(20),
-    createdON DATE
+    balance INT,
+    createdON DATE,
+    PRIMARY KEY (clientId)
 );
 
-SELECT * FROM users;
+SELECT * FROM client_list;
