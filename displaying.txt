@@ -1,0 +1,53 @@
+
+try{
+    
+    $dbConn = new  
+    PDO("mysql:host=$hostname;dbname=$dbname",     
+    $user, $password);
+
+if($username=="admin"){
+    $getClient = "select * from client_list order by clientId";
+    $getAccount = "select * from accounts_list order by clientId";
+  
+}else{
+    $getClient = "select * from client_list where clientId ='$userId'";
+    $getAccount = "select * from accounts_list where clientId ='$userId'";
+}
+
+$client_stmt = $dbConn->prepare($getClient);
+$account_stmt = $dbConn->prepare($getAccount);
+$clients = $client_stmt->execute();
+$accounts = $account_stmt->execute();
+$x=0;
+$output="";
+
+while($client_row= $client_stmt->fetch()){
+$user=$client_row['userName'];
+    if($username=="admin"){
+        $output.="<tr><td> <input class='view_inp' readonly name='accountNumber$x' id='name$x' value='$user'></td></tr>";
+    }
+    while($account_row= $account_stmt->fetch()){
+        $balance=$account_row['balance'];
+        $type=$account_row['type'];
+        $accountNumber=$account_row['accountNumber'];
+             $output.="<tr>
+             <td> <input class='view_inp' readonly name='accountNumber$x' id='name$x' value='$accountNumber'></td>
+             <td><input class='view_inp' readonly name='balance$x' value='$balance'></td>
+             <td><input class='view_inp' readonly name='type$x' value='$type'></td>
+             <td class='hide'><button type='button' onclick='delete_Row($x)'> delete</button></td>
+             </tr>";
+             
+
+    }
+     
+     $x++;
+}
+$edit="";
+if($username=="admin"){
+    $edit="<button id='edit' type='reset' onclick='edit_table()'>edit</button>";
+}
+   
+
+}catch(PDOException $e){
+   $output.="<tr><td>Error Retrieving Information</td></tr>";
+}

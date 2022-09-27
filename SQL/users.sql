@@ -7,11 +7,8 @@ Table for capturing clients for Palarche Capital
 CREATE TABLE client_list(
     clientId INT AUTO_INCREMENT ,
     email VARCHAR(100) ,
-    userName VARCHAR(20), 
-    type VARCHAR(20),
-    
-    passWord VARCHAR(20),
-    balance INT,
+    userName VARCHAR(20) NOT NULL, 
+    passWord VARCHAR(20) NOT NULL,
     createdON DATE,
     PRIMARY KEY (clientId)
 );

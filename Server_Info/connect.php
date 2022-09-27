@@ -1,9 +1,9 @@
 <?php
 /*
- $hostname = "dev.fast.sheridanc.on.ca";
- $dbname = "granthor_PalarcheCapital";
- $user = "granthor_PalarcheCapital";
- $password ="PalarcheCapital";
+ $hostname = "palarchecapital.com";
+ $dbname = "palarche_PalarcheCapital";
+ $user = "palarche_aundre";
+ $password ="Palarche2101";
 
 */
   /**/

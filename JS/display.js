@@ -8,23 +8,34 @@ window.onload = (event) => {
  var bnav = document.getElementById("bottomNav");    
   var CntBtn= document.getElementById("CntBtn");
   var AbtBtn= document.getElementById("AbtBtn");
-
-
-  
- 
+  var des= document.getElementById("description");
      introVid=document.getElementById("vid");
+     
+     introCont=document.getElementById("vidDiv");
+
+ if(window.innerWidth<1000){
+  des.innerHTML="We are a private Canadian Asset Management Fund and our mandate is to help people achieve their financial goals";
+  document.getElementById("body").style.overflowY="visible";
+} 
+setTimeout(function(){
+if(introVid.paused){
+    console.log("here");
+    introVid.remove();
+    introCont.remove();
+   }
+},500)
+
        introVid.onended = function(){
          document.getElementById("body").style.overflowY="visible";
-        
+           countup = setInterval(countUp, 25);
            introVid.remove();
-          
-            countup = setInterval(countUp, 25);
-
-          
-       }
+           introCont.remove();
+}
+ 
+ 
 
       
-      
+     
 
    
   var set=-1;    
@@ -74,7 +85,7 @@ Math.round(count)
  var num = document.getElementById("countUp");
  count=count+0.10;
 num.innerHTML = count.toFixed(1)+"%";
-if(count>23){
+if(count>23.6){
   clearInterval(countup);
 }
 

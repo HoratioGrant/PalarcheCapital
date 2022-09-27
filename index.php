@@ -1,13 +1,15 @@
 <?php
 
 require("./Server_Info/connect.php"); //get database login info
+
+//max Size of inputs
 define ("MAX_NAME_LENGTH", 20);
 define ("MAXIMUM_EMAIL_LENGTH", 255);
 define ("MAXIMUM_MESSAGE_LENGTH", 255);
 
-if($_SERVER['REQUEST_METHOD']=="POST"){
-    $error="";
-    $dbConn = new PDO("mysql:host = $hostname; dbname=$dbname",$user,$password);
+if($_SERVER['REQUEST_METHOD']=="POST"){//when form is submitted
+    $error="";//tracks any error msgs
+    $dbConn = new PDO("mysql:host = $hostname; dbname=$dbname",$user,$password);//new DB connection
   
     //captured info
     $name=trim($_POST['input_name']);
@@ -15,40 +17,40 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $message=trim($_POST['input_message']);
     $date = date("Ymd");
 
-    //validatoin
-    if(empty($email)){
+    //validation
+    if(empty($email)){//checks if email is empty
         $error="Email is Empty <br>";
-    }else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    }else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){//check if email is proper format
         $error.="Invalid email format <br>";
-       } else if (strlen($email)>MAXIMUM_EMAIL_LENGTH){
+       } else if (strlen($email)>MAXIMUM_EMAIL_LENGTH){//checks if email is not too long
         $error.="Email is too long <br>";
        }
-    if(empty($name)){
+    if(empty($name)){//checks that name isnt empty
         $error="Message is empty";
-    }else if (strlen($name)>MAX_NAME_LENGTH){
+    }else if (strlen($name)>MAX_NAME_LENGTH){//makes sure is name isnt too long
         $error.="First name cannot be longer than 20 characters <br>";
       }
-    if(empty($message)){
+    if(empty($message)){//check to see if message is empty
         $error="Message is empty";
-    }else if (strlen($message)>MAXIMUM_MESSAGE_LENGTH){
+    }else if (strlen($message)>MAXIMUM_MESSAGE_LENGTH){//makes sure message isnt too long
         $error.="First name cannot be longer than 20 characters <br>";
       }
     
 
 
-    if($error==""){
+    if($error==""){//only runs if all inputs were valid
     try{
        
-        $command="INSERT INTO ContactUsMessages (email,UserName,UserMessage,createdON ) VALUES(?,?,?,?)";
+        $command="INSERT INTO ContactUsMessages (email,UserName,UserMessage,createdON ) VALUES(?,?,?,?)"; //insert message to inputs user message to Contact message table
         $stmt= $dbConn->prepare($command);
-        $execOk = $stmt->execute(array($email,$name,$message,$date));
+        $execOk = $stmt->execute(array($email,$name,$message,$date));//inputs request 
 
         
     }catch (PDOException $e){
 
     }
 }
-header("Refresh:0");
+header("Refresh:0");//refreshes page
 }
 ?>
 
@@ -67,13 +69,14 @@ header("Refresh:0");
 <body id="body">
 
 <!-- HomePage Page-->
+<div id="fake-body">
 <div class="img"></div>
-
+</div>
     <header id="topNav">
     <nav>
         <ul>
            
-            <a  target="_blank"href="clientAccess.php"> <li>Client Access</li></a>
+            <a  target="_blank"href="clientAccess"> <li>Client Access</li></a>
             <a> <li>Advisors</li></a>
           
             
@@ -90,22 +93,26 @@ header("Refresh:0");
         
          
         </ul>
-           <img src="https://i.ibb.co/829b5MH/Palarche-Logo.png" alt="Palarche Capital" id="logo">
+           <img src="https://i.ibb.co/X4gzRrN/Palarche-Logo.png" alt="Palarche Capital" id="logo">
     </nav>
    </header> 
-   <!-- Video-->
-<video id="vid" autoplay muted>
-     <source  src="./pics/PalarchCapitalWEB_Fast.mp4" type="video/mp4" >
- </video>
-   
+   <!-- Video  -->
+   <div id="vidDiv">
 
+<video id="vid" autoplay muted >
+     <source  src="./pics/PalarchCapitalWEB_Fast.mp4" type="video/mp4" >
+
+    
+ </video>
+ 
+</div>
 
 
 <article>
     <h2 id="description"> <?php include('./text/Identity_Statement.txt')?> </h2>
     
-    <div id=stats>
-         <p class="info center">ANNUALIZED RETURNS SINCE <br>JUNE 2022 </p>
+    <div id=stats class="info center">
+         <p >ANNUALIZED RETURNS SINCE <br>JUNE 2022 </p>
          <p id="countUp"></p>
      </div>    
 </article>
@@ -114,8 +121,8 @@ header("Refresh:0");
 
 <article class=" aboutUs" id="AboutUsPart">
     <h2 class=" title" > About Us</h2>
-    <h3 class="info about AbU" ><?php include('./text/aboutUs.txt')?></h3><br>
-    <img class="AbU"id="stockPic"src="./pics/stockPic.jpg" alt="">
+    <h3 class="info about " ><?php include('./text/aboutUs.txt')?></h3><br>
+    <img id="stockPic"src="https://i.ibb.co/F5MJ0LH/stockPic.jpg" alt="">
     
     
 </article>
@@ -147,7 +154,7 @@ header("Refresh:0");
         </div>
 </form>
 
-<img id="contactPic"src="./pics/luca-bravo-9l_326FISzk-unsplash.jpg" alt="">
+<img id="contactPic"src="https://i.ibb.co/8xxywzs/chair.jpg" alt="">
     </article>
 
 

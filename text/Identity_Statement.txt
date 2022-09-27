@@ -1,1 +1,3 @@
-We are a private Canadian Asset Management Fund and our mandate is to help people achieve their financial goals through the use of Mathematical and statistical methods
+We are a private Canadian Asset Management Fund and our mandate
+ is to help people achieve their financial goals through the use 
+ of our proven mathematical and statistical methods

@@ -7,37 +7,48 @@ body{
    background-color:rgb(255, 255, 255) ;
    cursor:default;
 }
+
 html{
     scroll-behavior: smooth;
 }
-video{
-    position: -webkit-sticky;
+
+#vidDiv{
     position: fixed;
     top:0;  
-    z-index: 2;
-    background-color: black;
-    width: 100vw;
+     z-index: 2;
+   background-color: rgb(0, 0, 0); 
+     width: 100vw;
     height: 100vh;
+}
+video{
+    position: relative;
+    top: 45%;
+    transform: translateY(-50%);
+ width: 100%;   
+
+    
+    
 }
 
 .img{
+    
     background-image:url("https://i.ibb.co/7WD9GgM/Low-Toronto.jpg") ;
     background-repeat: no-repeat;
     background-position: bottom;
     background-size:100%;
-    height: 95vh;
+   height: 95vh;
     z-index: -1; 
-   
+    
     
 }
 
 .bottom img{
     height: 70px;
-    margin: auto auto;
+    transition: height 0.1s linear ;    
 }
 .top img{
     height: 40px;
-   
+    transition: height 0.1s linear ;
 }
 
 
@@ -45,6 +56,7 @@ nav{
    
     width: 100vw ;  
     z-index: 1;
+    transition: height 0.1s linear ;   
 }
 
  nav ul{
@@ -107,13 +119,13 @@ padding-top: 10px;
     position: fixed;
     top: 30px;
     height: 50px;
+   
 }
  
 #bottomNav nav li a:hover{
 background-color: rgb(182, 65, 36);
 
 }
-
 
 #description{
 font-size: 30px;
@@ -127,55 +139,61 @@ padding: 40px;
 
 background-color: rgba(0, 0, 0, 0.315);
  border-style: hidden;
- font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+ 
+
 padding-left: 150px;
 text-align: left;
    
 }
-
-
 
  #stats{ 
      text-align: center; 
      position: absolute;
      top: 400px;
      right: 10vw;
-     
+}
+#stats p{
+    display: block;
+    padding: 0px;
+    margin: 0px;
+}
+
+#countUp{
+    font-size: 35px; 
 }
 .info{
     font-size: 20px;
-    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-    
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
 }
 .about{
     text-align: left;
     float: right;
     width: 50vw;
 }
-.AbU{
-   
 
-}
+.aboutUs{
+    position: absolute;
+    top: 100vh;
+    color: black;
+    padding-top: 30px;
+  }
+
+.title{
+    width: 80vw;  
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  article{
+      margin: 0vw 10vw;
+  }
 .cnt{
     text-align: left;
       width: 45vw;
 }
 
-#countUp{
-    font-size: 35px;
-    position: relative;
-    top: -10px;
-}
-
-
-
-label{
-    color: black;
-}
 .contact{
-    margin: 0 10vw;
-    
+
     z-index: -1;
     width: 80vw;
     position: absolute;
@@ -237,17 +255,6 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
   }
 
 
-
-
-  .aboutUs{
-    position: absolute;
-    top: 100vh;
-    color: black;
-   
-    
-   
-  }
-
   #stockPic{
     width: 25vw;
   }
@@ -258,13 +265,9 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     color: rgba(0, 0, 0, 0.815);
     width: 50vw;
     
-   
-   
-
     
   }
-  .grid-item {        
-  }
+
  
 
   .center{
@@ -278,16 +281,7 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     
 }
 
-.title{
-  width: 80vw;  
-  font-size: 50px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
- 
-}
 
-article{
-    margin: 0vw 10vw;
-}
 
 
 
@@ -306,18 +300,127 @@ article{
 
 /*compaibilty with different size screens */
 
-@media (max-width: 1000px) {
+@media (max-width: 1300px) {
+
+   
+    nav img{
+       
+        width: auto;
+    }
+
+    #contactPic{
+        left: 55vw;
+    }
+    nav{
+        transition-duration:1s ;
+    }
+    nav img{
+        transition-duration:1s ;
+    }
 
     .img{
-        visibility: hidden;
+        height: calc(100vh - 70px);
     }
 }
 
+@media (max-width: 900px) {
+
+    .img{
+        transform: translate(0px, -15vh);
+    }
+   
+    #description{
+    font-weight: lighter;
+    top: 50px;
+    }
+    #stats{
+        top: 500px;
+    }
+    #countUp{ 
+        
+        right: 5vw; 
+   }
+   .info{
+    font-size: 15px;
+}
+.inp{
+    width: 300px;
+   }
+   .bottom img{
+    height: 50px;
+    margin-top: 10px;
+   }
+   #countUp{
+    font-size: 25px; 
+}
+
+   
+}
+@media (max-width: 700px) {
+  
+    #description{
+    font-size: 20px;
+    padding-left: 100px;
+    }
+    #stats{ 
+      font-size: 15px; 
+   }
+
+   #contactPic{
+    position: absolute;
+   visibility: hidden;
+}
+#stockPic{
+    position: absolute;
+    visibility: hidden;
+}
+.about{
+    text-align: left;
+    float: unset;
+    width: 75vw;
+}
+.cnt{
+    width: 65vw;
+}
+.bottom img{
+    height: 40px;
+    margin-top: 5px;
+   }
+   .bottom ul{
+  
+    margin-top: 12px;
+   }
+   .bottom  {
+    height: 60px;
+   
+   }
+   #bottomNav{
+     font-size: 15px;
+   }
+   nav ul{
+    margin: 0px 5px;
+    margin-left:0px ;
+   }
+   #countUp{
+    font-size: 17px; 
+}
+   
+ 
+   
+}
+
 @media (max-width: 500px) {
+ 
+
+    .contact{
+        top: 170vh;
+    }
+
 
     .inp{
-        width: 100px;
+        width: 300px;
         padding: 0px;
+        font-size: 20px;
     }
 
     #stockPic{
@@ -325,24 +428,60 @@ article{
         visibility: hidden;
     }
 
-    .about{
-        float: left;
+    
+    nav img{
+        margin-top: 6px;
+        width: 140px;
     }
-    .bottom img{
-        width: 50px;
-    }
+
+    #bottomNav{
+        font-size: 13px;
+      }
 
     nav ul{
         margin: 0px 0px;
     }
 
     nav li{
-        margin: 0px;
+        margin-left: 3px;
     }
 
     #contactPic{
         position: absolute;
         visibility: hidden;
     }
-}
 
+    #description{
+        padding-left: 50px;
+        width: 40vw;
+    }
+    article{
+        margin: 0;
+       
+    }
+    .contact , .aboutUs{
+       width: 80vw;
+        margin: 0vw 10vw;
+    }
+    
+    .grid-container{
+        width: auto;
+    }
+    #stats{ 
+    top: 400px;
+    }
+
+}
+@media (max-width: 380px) {
+    .contact{
+        top: 185vh;
+    }
+}
+@media (max-height: 1400px) and (max-width: 950px) {
+    .img{
+        
+        height: 100vh;
+        background-size:600%;
+        background-position: bottom;
+    }
+}

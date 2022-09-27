@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                     session_start();
                     $_SESSION["id"]=$row['clientId'];
                     $_SESSION["username"]=$username;
-                    header("Location: clientView.php");
+                    header("Location: clientView");
                     exit();
                 }else{
                     $error="Incorrect Password";
@@ -58,7 +58,7 @@ TYPE html>
 
 
       <nav id="bottomNav" class="bottom">
-          <a href="homePage.php"><img src="https://i.ibb.co/829b5MH/Palarche-Logo.png" alt="Palarche Capital" id="logo"></a> 
+          <a href="/"><img src="https://i.ibb.co/829b5MH/Palarche-Logo.png" alt="Palarche Capital" id="logo"></a> 
     </nav>
 <article>
     <div id="box"> 

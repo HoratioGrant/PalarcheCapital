@@ -1,1 +1,1 @@
-Logins are provided to clients, to begin the clientele creation process or to request new login in credentials <a href="homePage.php#contactPart"><b>Contact Us<b><a>
+Logins are provided to clients, to begin the clientele creation process or to request new login in credentials <a href="./"><b>Contact Us<b><a>

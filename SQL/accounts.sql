@@ -1,10 +1,10 @@
 CREATE TABLE accounts_list(
-    accountNumber INT,
-    clientId INT ,
+    accountNumber INT AUTO_INCREMENT,
+    clientId INT NOT NULL ,
     type VARCHAR(20),
     balance INT,
    
     PRIMARY KEY (accountNumber)
 );
 
-SELECT * FROM client_list;
+SELECT * FROM accounts_list;
