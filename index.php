@@ -108,14 +108,17 @@ header("Refresh:0");//refreshes page
 </div>
 
 
-<article>
+<section>
     <h2 id="description"> <?php include('./text/Identity_Statement.txt')?> </h2>
     
     <div id=stats class="info center">
-         <p >ANNUALIZED RETURNS SINCE <br>JUNE 2022 </p>
+         <p >ANNUALIZED RETURNS SINCE JUNE 2022 </p>
          <p id="countUp"></p>
-     </div>    
-</article>
+        
+     </div> 
+      <a href="#contactPart"><button class="info" id="conbtn"> Contact Us <span id="pointer">›</span> </button></a>
+     
+</section>
 
 <!-- About Page-->
 

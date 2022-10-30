@@ -22,8 +22,14 @@ if(introVid.paused){
     console.log("here");
     introVid.remove();
     introCont.remove();
+    countup = setInterval(countUp, 25);
+    document.getElementById("conbtn").style.animationDelay="1.75s";
+    document.getElementById("description").style.animationDelay="1.75s";
+   }else{
+    document.getElementById("conbtn").style.animationDelay="4.75s";
+    document.getElementById("description").style.animationDelay="4.75s";
    }
-},500)
+},700)
 
        introVid.onended = function(){
          document.getElementById("body").style.overflowY="visible";
