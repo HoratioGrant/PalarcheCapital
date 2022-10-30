@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 body{ 
     margin: 0;
     overflow-x:hidden;
@@ -8,9 +12,6 @@ body{
    cursor:default;
 }
 
-html{
-    scroll-behavior: smooth;
-}
 
 #vidDiv{
     position: fixed;
@@ -44,7 +45,8 @@ video{
 
 .bottom img{
     height: 70px;
-    transition: height 0.1s linear ;    
+    transition: height 0.1s linear ;   
+   
 }
 .top img{
     height: 40px;
@@ -132,6 +134,7 @@ font-size: 30px;
 position: absolute;
     
 width: 35vw;  
+
 padding: 40px;
 
  top: 200px;
@@ -143,7 +146,24 @@ background-color: rgba(0, 0, 0, 0.315);
 
 padding-left: 150px;
 text-align: left;
-   
+animation-name:slide; 
+animation-duration:3s;
+animation-delay:.5s;
+}
+
+@keyframes slide{
+    0% {      
+        background-color: rgba(0, 0, 0, 0.801);
+        color: rgba(255, 255, 255, 0);
+    }
+    35%{
+        background-color: rgba(0, 0, 0, 0.795);
+        color: rgba(255, 255, 255, 0);
+    } 
+    100%{  
+        background-color: rgba(0, 0, 0, 0.315);
+        color: rgba(255, 255, 255, 1);
+    }
 }
 
  #stats{ 
@@ -152,6 +172,45 @@ text-align: left;
      top: 400px;
      right: 10vw;
 }
+#ctn{ 
+    position: absolute;
+    top: 525px;
+    left: 10vw;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.696);
+    color: rgb(0, 0, 0);
+    border: none;
+    height: 60px;
+    width: 160px;
+    animation-name:open;
+    animation-duration:5s;
+    animation-delay: .5s;
+}
+
+#ctn:hover{ 
+    background-color: rgba(255, 255, 255, 0.838);
+}
+#ctn:hover #pointer{ 
+   color: rgb(182, 65, 36); 
+}
+
+@keyframes open{
+    0%{     
+        color: rgb(0, 0, 0,0);
+        margin-top: 10vh;
+        visibility: hidden;
+    }
+    75%{      
+        margin-top: 0vh;
+        color: rgb(0, 0, 0);
+        background-color: white;
+    }
+    100%{
+      
+    }
+}
+
+
 #stats p{
     display: block;
     padding: 0px;
@@ -307,6 +366,16 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
        
         width: auto;
     }
+    #description{
+        top: 65px;
+    }
+    #ctn{
+       
+        height: 50px;
+    width: 140px;
+    }
+
+
 
     #contactPic{
         left: 55vw;
@@ -336,6 +405,11 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     #stats{
         top: 500px;
     }
+    #ctn{
+        font-size: 15px;
+        height: 40px;
+        width: 125px;
+    }
     #countUp{ 
         
         right: 5vw; 
@@ -364,7 +438,12 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     }
     #stats{ 
       font-size: 15px; 
-   }
+        top: 450px;
+        }
+    
+        #ctn{
+            top: 325px; 
+        }
 
    #contactPic{
     position: absolute;
@@ -384,14 +463,14 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 .bottom img{
     height: 40px;
-    margin-top: 5px;
+    margin-top: 2.5px;
    }
    .bottom ul{
   
     margin-top: 12px;
    }
    .bottom  {
-    height: 60px;
+    height: 50px;
    
    }
    #bottomNav{
@@ -467,9 +546,6 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     .grid-container{
         width: auto;
     }
-    #stats{ 
-    top: 400px;
-    }
 
 }
 @media (max-width: 380px) {
@@ -483,5 +559,26 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
         height: 100vh;
         background-size:600%;
         background-position: bottom;
+    }
+}
+
+@media (max-height: 600px){
+    .contact{
+        top: 195vh;
+    }
+    .img{
+        transform: translate(0px, -15vh);
+    }
+
+}
+@media (max-height: 700px){
+    .contact{
+        top: 182vh;
+    }
+}
+
+@media (max-height: 825px){ /*try not to pass 835 px to fix on discord */
+    .img{
+        transform: translate(0px, -7vh);
     }
 }
