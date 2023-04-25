@@ -87,8 +87,8 @@ header("Refresh:0");//refreshes page
     <header  >
       <nav id="bottomNav" class="bottom">
         <ul>
-        <a id="AbtBtn" href="#AboutUsPart"><li> About US</li></a>
-        <a id="CntBtn" href="#contactPart"><li>Contact US</li></a>
+        <a id="AbtBtn" href="/AboutUsPart"><li> About US</li></a>
+        <a id="CntBtn" href="/contactPart"><li>Contact US</li></a>
         <a><li>Invest</li></a>
         
          
@@ -130,6 +130,9 @@ header("Refresh:0");//refreshes page
     
 </article>
 
+<!--<div id=line > diagonal line 
+ <p info>here</p>
+</div>--> 
 <!-- contact Page-->
 
 <article class="contact" >

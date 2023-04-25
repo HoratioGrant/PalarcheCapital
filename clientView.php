@@ -66,7 +66,7 @@ while($request_row= $requests_stmt->fetch()){
         $balance=number_format($balance, 2, '.', ',');
         $type=$account_row['type'];
         $accountNumber=$account_row['accountNumber'];
-             $output.="<tr>
+             $output.="<tr id=balance_info>
              <td> <input class='view_inp' readonly name='accountNumber$x' id='name$x' value='$type $accountNumber'></td>
              <td id='balance_d'><input class='view_inp balance_data' readonly name='balance$x' value='$ $balance'></td>
              <td class='hide'><button type='button' onclick='delete_Row($x)'> delete</button></td>
@@ -165,30 +165,26 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 <header class="view_header">
     <h1 id="welcome">Welcome Back, <?= $username ?>  </h1>
     <div id="total_area">
-        <p id="total">Total:</p>
+   
        <p>$<?=$total?> </p> 
     </div>
     
 </header>
 
+<div id="ClientArticle">
+
 <section>
     
-    <div >
   
-        <div id="viewBox">
             <form action="<?=$_SERVER['PHP_SELF']?>" id="tab" method="POST" name="client_list" autocomplete="off">
                 
                 <table id="client_table" contenteditable='false'>
                     <tr> <th>Account Info</th><th></th></tr>
                     <?=$output?>
-                    <div id="add"></div>
-                  
                 </table>
                 <button type="button" class="hide" onclick="add_Row('client_table')">add</button>
         <!--  <?=$edit?>-->
-          </div> 
-         
-    </div>
+
 
         <input type="submit" value="save" id="save">  
 </form> 
@@ -211,7 +207,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         <input class="request_inp" type="text" name="request_info" >
     </div>
     <div id="form_send">
-       <input type="submit" value="send" id="reqSumbit"> 
+       <input type="submit" value="Request" id="reqSumbit"> 
     </div>
     <p id="errorMSG"><?=$error?></p>
     
@@ -225,7 +221,8 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     </table>
 
 </div>
-</aside>
+</div>
+</article>
 
 <footer >
     <p >Account information updated daily. If you think there is a mistake please contact us at aundre.palarche@gmail.com</p>

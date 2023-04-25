@@ -3,7 +3,8 @@
   
 
 window.onload = (event) => {
-  window.scrollTo(top);
+  window.scrollTo(2000,2000); //fixes glitchy scroll after clicking contact us
+  window.scrollTo(0,0);
   var tnav=document.getElementById("topNav");
  var bnav = document.getElementById("bottomNav");    
   var CntBtn= document.getElementById("CntBtn");
@@ -23,13 +24,12 @@ if(introVid.paused){
     introVid.remove();
     introCont.remove();
     countup = setInterval(countUp, 25);
-    document.getElementById("conbtn").style.animationDelay="1.75s";
-    document.getElementById("description").style.animationDelay="1.75s";
+    document.getElementById("body").style.overflowY="visible";
    }else{
     document.getElementById("conbtn").style.animationDelay="4.75s";
     document.getElementById("description").style.animationDelay="4.75s";
    }
-},700)
+},725)
 
        introVid.onended = function(){
          document.getElementById("body").style.overflowY="visible";
@@ -47,7 +47,11 @@ if(introVid.paused){
   var set=-1;    
      var change=true;
 
-       document.addEventListener('scroll', function(e){
+       document.addEventListener('scroll', scrollFunc)
+  
+        function scrollFunc(){
+
+        
        var tnavPos=tnav.offsetHeight;
        var navPos=bnav.offsetTop;
       
@@ -72,7 +76,7 @@ if(introVid.paused){
            }
           
 
-       })
+       }
 
        
        function reset(e){
